@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AccountService } from '../account/account.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['../account/account.component.scss']
+  styleUrls: ['../account.component.scss']
 })
 export class RegisterComponent {
   login: string = null;

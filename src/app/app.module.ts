@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { AccountModule } from './account/account.module';
 import { ForecastModule } from './forecast/forecast.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
+import { MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,11 @@ import { MaterialModule } from './material.module';
     ForecastModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ForecastComponent } from '../forecast/forecast.component';
+import { ForecastComponent } from './forecast.component';
 import { FormsModule } from '@angular/forms';
 import { ForecastRoutingModule } from './forecast-routing.module';
 import { HttpClientModule } from '@angular/common/http';

@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="snav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="app-name">Weather Forecast</h1>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #snav mode="side" [fixedInViewport]="true" class="side-nav">
+    <mat-nav-list>
+      <a *ngFor="let item of routes" mat-list-item [routerLink]="item.route" class="sidebar-link">{{ item.name }}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
