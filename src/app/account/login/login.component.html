@@ -1,18 +1,16 @@
-<form autocomplete="off">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Login" [(ngModel)]="login" name="login">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="password" name="password" placeholder="Password" [(ngModel)]="password"/>
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-      <button type="submit" mat-button (click)="onSubmit()">Login</button>
-    </mat-card-actions>
-  </mat-card>
-</form>
+<div class="account-header">
+  <h2>{{ 'Login' | uppercase }}</h2>
+</div>
+<div class="row">
+  <div class="input-field">
+    <input type="text" id="login" [(ngModel)]="login" name="login">
+    <label for="login">Login</label>
+  </div>
+  <div class="input-field">
+    <input type="password" name="password" id="password" [(ngModel)]="password"/>
+    <label for="password">Password</label>
+  </div>
+</div>
+<div class="row">
+  <button type="submit" class="waves-effect waves-light btn indigo" (click)="onSubmit()">Login</button>
+</div>

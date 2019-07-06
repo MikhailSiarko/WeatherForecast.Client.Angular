@@ -8,7 +8,7 @@ export class AccountService {
   constructor(private http: HttpClient, private apiUrlsService: ApiUrlsService, private router: Router) { }
 
   login(login: string, password: string) {
-    this.http.post(this.apiUrlsService.login, {login, password}).subscribe((data: any) => {
+    this.http.post(this.apiUrlsService.login, {login, password}).subscribe((data: { token: string }) => {
       sessionStorage.setItem('auth_token', data.token);
       this.router.navigate(['forecast']);
     },
@@ -16,7 +16,7 @@ export class AccountService {
   }
 
   register(login: string, password: string, confirmPassword: string) {
-    this.http.post(this.apiUrlsService.register, {login, password, confirmPassword}).subscribe((data: any) => {
+    this.http.post(this.apiUrlsService.register, {login, password, confirmPassword}).subscribe((data: { token: string }) => {
       sessionStorage.setItem('auth_token', data.token);
       this.router.navigate(['forecast']);
     },

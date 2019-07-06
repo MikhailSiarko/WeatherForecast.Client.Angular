@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AccountRoutingModule } from './account-routing.module';
 import { AccountService } from './account.service';
-import {MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
+import { AccountComponent } from './account.component';
 
 @NgModule({
   declarations: [
+    AccountComponent,
     LoginComponent,
     RegisterComponent
   ],
@@ -17,10 +18,7 @@ import {MatButtonModule, MatCardModule, MatInputModule } from '@angular/material
     CommonModule,
     FormsModule,
     RouterModule,
-    AccountRoutingModule,
-    MatButtonModule,
-    MatInputModule,
-    MatCardModule
+    AccountRoutingModule
   ],
   providers: [AccountService],
   exports: []

@@ -1,14 +1,21 @@
-<mat-toolbar color="primary" class="toolbar">
-  <button mat-icon-button (click)="snav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <h1 class="app-name">Weather Forecast</h1>
-</mat-toolbar>
+<nav>
+  <div class="nav-wrapper indigo">
+    <a href="#!" class="brand-logo">Weather Forecast</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li *ngFor="let item of items">
+        <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action() : null">
+          {{ item.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<mat-sidenav-container>
-  <mat-sidenav #snav mode="side" [fixedInViewport]="true" class="side-nav">
-    <mat-nav-list>
-      <a *ngFor="let item of routes" mat-list-item [routerLink]="item.route" class="sidebar-link">{{ item.name }}</a>
-    </mat-nav-list>
-  </mat-sidenav>
-</mat-sidenav-container>
+<ul class="sidenav" id="mobile-demo">
+  <li *ngFor="let item of items">
+    <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action() : null">
+      {{ item.name }}
+    </a>
+  </li>
+</ul>

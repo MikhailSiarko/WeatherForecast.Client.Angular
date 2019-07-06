@@ -1,9 +1,10 @@
-mat-form-field {
-  display: block;
+.account-header > h2 {
+  color: #7f7f7f;
+  font-size: 5rem;
+  letter-spacing: .3rem;
 }
 
-form {
-  margin: auto;
-  width: 50%;
-  height: 50%;
+.account-container {
+  height: 70vh;
+  margin-top: 12.5vh;
 }
