@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { SidebarItem } from '../../models/sidebar-item.model';
+import { SidebarItem } from '../../models';
 import * as M from 'materialize-css';
 
 @Component({
