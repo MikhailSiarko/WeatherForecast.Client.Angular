@@ -1,0 +1,35 @@
+<div class="row app-container">
+  <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="onSubmit()"
+        class="col s10 m6 l6 xl4 offset-s1 offset-m3 offset-l3 offset-xl4 center-align">
+    <div class="account-header">
+      <h2>{{ 'Register' | uppercase }}</h2>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input type="text" id="login" formControlName="login" name="login">
+        <label for="login">Login</label>
+        <div *ngIf="submitted && controls.login.errors" class="invalid-message">
+          <div *ngIf="controls.login.errors.required">Login is required</div>
+        </div>
+      </div>
+      <div class="input-field">
+        <input type="password" name="password" id="password" formControlName="password"/>
+        <label for="password">Password</label>
+        <div *ngIf="submitted && controls.password.errors" class="invalid-message">
+          <div *ngIf="controls.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <div class="input-field">
+        <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword"/>
+        <label for="confirmPassword">Confirm Password</label>
+        <div *ngIf="submitted && registerForm.errors" class="invalid-message">
+          <div *ngIf="registerForm.errors.notMatch">Passwords do not match</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="waves-effect waves-light btn indigo">Register
+      </button>
+    </div>
+  </form>
+</div>

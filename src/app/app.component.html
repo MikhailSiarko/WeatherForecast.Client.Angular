@@ -1,9 +1,4 @@
-<app-sidebar
-  [items]="[
-    { path: '/account/login', name: 'Login' },
-    { path: '/account/register', name: 'Register' }
-  ]"
-></app-sidebar>
+<app-sidebar [items]="routes"></app-sidebar>
 <main>
   <router-outlet></router-outlet>
 </main>

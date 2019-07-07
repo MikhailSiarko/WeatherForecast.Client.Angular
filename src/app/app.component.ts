@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { UserModel } from './authentication.model';
+import {Component} from '@angular/core';
+import {AuthenticationService} from './services';
+import {SidebarItem} from './models';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,15 @@ import { UserModel } from './authentication.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  user: UserModel;
+  get routes() {
+    return this.authenticationService.user ? [
+      new SidebarItem('Logout', undefined, () => this.authenticationService.logout())
+    ] : [
+      new SidebarItem('Login', '/login'),
+      new SidebarItem('Register', '/register')
+    ];
+  }
+
+  constructor(private authenticationService: AuthenticationService) {
+  }
 }
