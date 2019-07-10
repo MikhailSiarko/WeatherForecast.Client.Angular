@@ -4,9 +4,14 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li *ngFor="let item of items">
-        <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action($event) : $event.preventDefault()">
+        <a *ngIf="item.path;else actionLink" [routerLink]="item.path">
           {{ item.name }}
         </a>
+        <ng-template #actionLink>
+          <a (click)="item.action ? item.action($event) : $event.preventDefault()">
+          {{ item.name }}
+          </a>
+        </ng-template>
       </li>
     </ul>
   </div>
@@ -14,8 +19,13 @@
 
 <ul class="sidenav" id="mobile-demo">
   <li *ngFor="let item of items">
-    <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action($event) : $event.preventDefault()">
+    <a *ngIf="item.path;else actionLink" [routerLink]="item.path">
       {{ item.name }}
     </a>
+    <ng-template #actionLink>
+      <a (click)="item.action ? item.action($event) : $event.preventDefault()">
+      {{ item.name }}
+      </a>
+    </ng-template>
   </li>
 </ul>

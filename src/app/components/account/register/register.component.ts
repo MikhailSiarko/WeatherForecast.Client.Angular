@@ -34,8 +34,6 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, {validator: RegisterComponent.match});
-
-    this.authenticationService.logout();
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 

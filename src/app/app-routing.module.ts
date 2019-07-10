@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'forecast', component: ForecastComponent, canActivate: [AuthenticationGuard]},
-  {path: '**', redirectTo: ''}
+  {path: '**', redirectTo: 'forecast'}
 ];
 
 @NgModule({
