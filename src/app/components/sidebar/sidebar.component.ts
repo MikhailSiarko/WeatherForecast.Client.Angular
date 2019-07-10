@@ -7,7 +7,7 @@ import * as M from 'materialize-css';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit{
+export class SidebarComponent implements OnInit {
   @Input() items: SidebarItem[] = [];
 
   ngOnInit(): void {

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col s10 m8 l4 xl4 offset-s1 offset-m2 offset-l4 offset-xl4 center-align">
+    <div class="input-field">
+      <input type="text" id="location" [(ngModel)]="location"/>
+      <label for="location">Location</label>
+    </div>
+    <div>
+      <button type="button" [disabled]="loading" class="waves-effect waves-light btn indigo" (click)="click($event)">Search</button>
+    </div>
+  </div>
+</div>

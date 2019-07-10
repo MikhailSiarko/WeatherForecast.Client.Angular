@@ -1,10 +1,10 @@
 <nav>
   <div class="nav-wrapper indigo">
-    <a [routerLink]="'/forecast'" class="brand-logo">Weather Forecast</a>
+    <a routerLink="/forecast" class="brand-logo">Weather Forecast</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li *ngFor="let item of items">
-        <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action() : null">
+        <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action($event) : $event.preventDefault()">
           {{ item.name }}
         </a>
       </li>
@@ -14,7 +14,7 @@
 
 <ul class="sidenav" id="mobile-demo">
   <li *ngFor="let item of items">
-    <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action() : null">
+    <a [routerLink]="item.path ? item.path : '#'" (click)="item.action ? item.action($event) : $event.preventDefault()">
       {{ item.name }}
     </a>
   </li>

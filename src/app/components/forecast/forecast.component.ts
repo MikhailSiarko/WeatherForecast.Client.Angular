@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, AfterViewChecked} from '@angular/core';
 import {ForecastService} from '../../services';
 import {Forecast} from '../../models';
 
@@ -7,14 +7,45 @@ import {Forecast} from '../../models';
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.scss']
 })
-export class ForecastComponent {
+export class ForecastComponent implements AfterViewChecked, OnDestroy {
   forecast: Forecast;
-  location: string;
+  carousel: M.Carousel;
+  loading: boolean;
 
-  constructor(private forecastService: ForecastService) {
+  initializeCarousel = () => {
+    const elem = document.querySelectorAll('.carousel.carousel-slider')[0];
+    this.carousel = M.Carousel.init(elem, {fullWidth: true, indicators: true});
   }
 
-  getForecast() {
-    this.forecastService.fetch(this.location).subscribe(forecast => this.forecast = forecast);
+  constructor(private forecastService: ForecastService) {
+    this.loading = false;
+  }
+
+  ngOnDestroy(): void {
+    this.carousel.destroy();
+    this.carousel = null;
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.forecast && !this.carousel) {
+      this.initializeCarousel();
+    }
+  }
+
+  getForecast(location: string) {
+    this.loading = true;
+    this.forecastService.fetch(location)
+      .subscribe(forecast => {
+        this.forecast = forecast;
+        this.loading = false;
+        if(this.carousel) {
+          this.carousel.destroy();
+          this.carousel = null;
+        }
+      });
+  }
+
+  date(dateString: string) {
+    return new Date(dateString).toLocaleDateString();
   }
 }

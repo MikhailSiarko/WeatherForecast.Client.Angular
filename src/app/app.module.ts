@@ -12,6 +12,10 @@ import {RegisterComponent} from './components/account/register/register.componen
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorInterceptor, JwtInterceptor} from './interceptors';
 import {AuthenticationService, ForecastService} from './services';
+import {LocationInputComponent} from './components/forecast/location-input/location-input.component';
+import {DateHeaderComponent} from './components/forecast/date-header/date-header.component';
+import {LocationComponent} from './components/forecast/location/location.component';
+import {TimeItemCollectionComponent, TimeItemComponent} from './components/forecast/time-item-collection';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,12 @@ import {AuthenticationService, ForecastService} from './services';
     SidebarComponent,
     ForecastComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LocationInputComponent,
+    DateHeaderComponent,
+    LocationComponent,
+    TimeItemComponent,
+    TimeItemCollectionComponent
   ],
   imports: [
     BrowserModule,

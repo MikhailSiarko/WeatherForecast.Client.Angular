@@ -1,15 +1,20 @@
 export class SidebarItem {
   path: string | undefined;
   name: string;
-  action: (() => void) | undefined;
+  action: ((event: any) => void) | undefined;
 
   constructor(name: string, path?: string, action?: () => void) {
     this.name = name;
-    if(path) {
+    if (path) {
       this.path = path;
     }
-    if(action) {
-      this.action = action;
+    if (action) {
+      this.action = event => {
+        if (event.stopPropagation) {
+          event.stopPropagation();
+        }
+        action();
+      };
     }
   }
 }

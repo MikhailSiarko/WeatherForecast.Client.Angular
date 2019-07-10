@@ -10,8 +10,14 @@ export class ForecastItem {
   id: number;
   forecastId: number;
   date: string;
+  timeItems: ForecastTimeItem[];
+}
+
+export class ForecastTimeItem {
+  forecastId: number;
+  time: string;
   main: Main;
-  weather: Weather[];
+  weathers: Weather[];
   wind: Wind;
 }
 
@@ -34,4 +40,5 @@ export class Weather {
   id: number;
   main: string;
   description: string;
+  icon: string;
 }
