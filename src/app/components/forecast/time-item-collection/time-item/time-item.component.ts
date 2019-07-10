@@ -12,8 +12,4 @@ export class TimeItemComponent {
   get timeFormat() {
     return new Date(this.timeItem.time).toLocaleTimeString();
   }
-
-  get weather() {
-    return this.timeItem.weathers[0];
-  }
 }

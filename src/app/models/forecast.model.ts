@@ -17,7 +17,7 @@ export class ForecastTimeItem {
   forecastId: number;
   time: string;
   main: Main;
-  weathers: Weather[];
+  weather: Weather;
   wind: Wind;
 }
 

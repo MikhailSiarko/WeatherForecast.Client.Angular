@@ -1,7 +1,7 @@
-<li class="time-item">
+<div class="time-item">
   <div>
     <p class="white-text">{{ timeFormat }}</p>
-    <img [src]="'http://openweathermap.org/img/wn/' + weather.icon + '@2x.png'" [alt]="weather.description" />
-    <p class="white-text">{{ weather.description }}</p>
+    <img [src]="timeItem.weather.icon" [alt]="timeItem.weather.description" />
+    <p class="white-text">{{ timeItem.weather.description }}</p>
   </div>
-</li>
+</div>
