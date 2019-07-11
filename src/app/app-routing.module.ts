@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ForecastComponent} from './components/forecast/forecast.component';
+import {ForecastComponent} from './components/forecast';
 import {LoginComponent} from './components/account/login/login.component';
 import {RegisterComponent} from './components/account/register/register.component';
 import {AuthenticationGuard} from './guards';

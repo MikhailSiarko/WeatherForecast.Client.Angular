@@ -1,4 +1,4 @@
-import {ForecastTimeItem} from '../../../models';
+import {ForecastTimeItem} from '../../../../../models';
 import {Component, Input} from '@angular/core';
 
 @Component({

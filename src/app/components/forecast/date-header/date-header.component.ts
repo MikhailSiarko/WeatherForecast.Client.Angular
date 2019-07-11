@@ -6,10 +6,4 @@ import {Component, Input} from '@angular/core';
 })
 export class DateHeaderComponent {
   @Input() date: string;
-  get dateFormat() {
-    if(this.date) {
-      return new Date(this.date).toLocaleDateString();
-    }
-    return '';
-  }
 }

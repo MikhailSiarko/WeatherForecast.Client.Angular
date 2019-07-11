@@ -1,26 +1,26 @@
-<div class="row app-container">
+<div class="row app-container center-align">
+  <div class="account-header">
+    <h2>{{ 'Register' | uppercase }}</h2>
+  </div>
   <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="onSubmit()"
-        class="col s10 m6 l6 xl4 offset-s1 offset-m3 offset-l3 offset-xl4 center-align">
-    <div class="account-header">
-      <h2>{{ 'Register' | uppercase }}</h2>
-    </div>
+        class="col s10 m4 l2 xl2 offset-s1 offset-m4 offset-l5 offset-xl5 center-align">
     <div class="row">
       <div class="input-field">
-        <input type="text" id="login" formControlName="login" name="login">
+        <input type="text" id="login" formControlName="login" name="login" class="center-align" />
         <label for="login">Login</label>
         <div *ngIf="submitted && controls.login.errors" class="invalid-message">
           <div *ngIf="controls.login.errors.required">Login is required</div>
         </div>
       </div>
       <div class="input-field">
-        <input type="password" name="password" id="password" formControlName="password"/>
+        <input type="password" name="password" id="password" formControlName="password" class="center-align"/>
         <label for="password">Password</label>
         <div *ngIf="submitted && controls.password.errors" class="invalid-message">
           <div *ngIf="controls.password.errors.required">Password is required</div>
         </div>
       </div>
       <div class="input-field">
-        <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword"/>
+        <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword" class="center-align"/>
         <label for="confirmPassword">Confirm Password</label>
         <div *ngIf="submitted && registerForm.errors" class="invalid-message">
           <div *ngIf="registerForm.errors.notMatch">Passwords do not match</div>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="row">
-      <button type="submit" class="waves-effect waves-light btn indigo">Register
+      <button type="submit" [disabled]="loading" class="waves-effect waves-light btn indigo">Register
       </button>
     </div>
   </form>

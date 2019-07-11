@@ -4,7 +4,6 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 
 import {AuthenticationService} from '../services';
-import {Router} from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -13,11 +12,12 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(err => {
+      const error = err.error;
       if (err.status === 401) {
         this.authenticationService.logout();
+      } else {
+        alert(error);
       }
-
-      const error = err.error.message || err.statusText;
       return throwError(error);
     }));
   }

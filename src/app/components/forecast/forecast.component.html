@@ -4,12 +4,7 @@
     <div class="row">
       <div *ngIf="forecast && !loading" class="weather-list">
         <app-location [city]="forecast.city" [countryCode]="forecast.countryCode"></app-location>
-        <div class="carousel carousel-slider center">
-          <div class="carousel-item indigo center" *ngFor="let item of forecast.items">
-            <app-date-header [date]="item.date"></app-date-header>
-            <app-time-item-collection [timeItems]="item.timeItems"></app-time-item-collection>
-          </div>
-        </div>
+        <app-item-collection [items]="forecast.items"></app-item-collection>
       </div>
     </div>
   </div>

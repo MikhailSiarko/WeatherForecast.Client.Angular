@@ -1,2 +1,2 @@
 export * from './authentication.service';
-export * from './forecast.service';
+export * from '../components/forecast/forecast.service';

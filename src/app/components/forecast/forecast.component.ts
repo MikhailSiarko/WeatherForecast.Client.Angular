@@ -12,7 +12,7 @@ export class ForecastComponent implements AfterViewChecked, OnDestroy {
   carousel: M.Carousel;
   loading: boolean;
 
-  initializeCarousel = () => {
+  initializeCarousel() {
     const elem = document.querySelectorAll('.carousel.carousel-slider')[0];
     this.carousel = M.Carousel.init(elem, {fullWidth: true, indicators: true});
   }
@@ -22,8 +22,10 @@ export class ForecastComponent implements AfterViewChecked, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.carousel.destroy();
-    this.carousel = null;
+    if (this.carousel) {
+      this.carousel.destroy();
+      this.carousel = null;
+    }
   }
 
   ngAfterViewChecked(): void {
@@ -38,14 +40,13 @@ export class ForecastComponent implements AfterViewChecked, OnDestroy {
       .subscribe(forecast => {
         this.forecast = forecast;
         this.loading = false;
-        if(this.carousel) {
+        if (this.carousel) {
           this.carousel.destroy();
           this.carousel = null;
         }
+      }, error => {
+        this.loading = false;
+        return error;
       });
-  }
-
-  date(dateString: string) {
-    return new Date(dateString).toLocaleDateString();
   }
 }

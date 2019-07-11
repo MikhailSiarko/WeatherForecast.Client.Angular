@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   returnUrl: string;
   error = '';
   submitted = false;
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,18 +41,22 @@ export class RegisterComponent implements OnInit {
   get controls() { return this.registerForm.controls; }
 
   onSubmit() {
+    this.loading = true;
     this.submitted = true;
     if (this.registerForm.invalid) {
+      this.loading = false;
       return;
     }
 
     this.authenticationService.register(this.controls.login.value, this.controls.password.value, this.controls.confirmPassword.value)
       .pipe(first())
       .subscribe(
-        _ => {
+        () => {
+          this.loading = false;
           this.router.navigate([this.returnUrl]);
         },
         error => {
+          this.loading = false;
           this.error = error;
         });
   }

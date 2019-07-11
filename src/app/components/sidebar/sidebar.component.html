@@ -8,7 +8,7 @@
           {{ item.name }}
         </a>
         <ng-template #actionLink>
-          <a (click)="item.action ? item.action($event) : $event.preventDefault()">
+          <a (click)="item.action($event)">
           {{ item.name }}
           </a>
         </ng-template>
@@ -23,7 +23,7 @@
       {{ item.name }}
     </a>
     <ng-template #actionLink>
-      <a (click)="item.action ? item.action($event) : $event.preventDefault()">
+      <a (click)="item.action($event)">
       {{ item.name }}
       </a>
     </ng-template>
