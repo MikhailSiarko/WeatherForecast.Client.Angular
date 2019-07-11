@@ -10,7 +10,7 @@ import {LoginComponent} from './components/account/login/login.component';
 import {RegisterComponent} from './components/account/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorInterceptor, JwtInterceptor} from './interceptors';
-import {AuthenticationService, ForecastService} from './services';
+import {AuthenticationService} from './services';
 import {ForecastModule} from './components/forecast';
 
 
@@ -32,7 +32,6 @@ import {ForecastModule} from './components/forecast';
   ],
   providers: [
     AuthenticationService,
-    ForecastService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
