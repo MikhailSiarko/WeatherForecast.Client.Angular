@@ -1,0 +1,31 @@
+<nav>
+  <div class="nav-wrapper indigo">
+    <a routerLink="/forecast" class="brand-logo">Weather Forecast</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li *ngFor="let item of items">
+        <a *ngIf="item.path;else actionLink" [routerLink]="item.path">
+          {{ item.name }}
+        </a>
+        <ng-template #actionLink>
+          <a (click)="item.action($event)">
+          {{ item.name }}
+          </a>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li *ngFor="let item of items">
+    <a *ngIf="item.path;else actionLink" [routerLink]="item.path">
+      {{ item.name }}
+    </a>
+    <ng-template #actionLink>
+      <a (click)="item.action($event)">
+      {{ item.name }}
+      </a>
+    </ng-template>
+  </li>
+</ul>

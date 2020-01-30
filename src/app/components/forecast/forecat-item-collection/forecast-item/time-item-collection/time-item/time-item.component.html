@@ -1,0 +1,18 @@
+<div class="time-item">
+  <div class="container">
+    <div class="row">
+      <p class="white-text time">{{ timeItem.time | date:'shortTime' }}</p>
+      <app-weather-icon
+        [main]="timeItem.weather.main"
+        [iconUrl]="timeItem.weather.icon"
+        [description]="timeItem.weather.description"
+      ></app-weather-icon>
+      <app-weather-detail
+        [humidity]="timeItem.main.humidity"
+        [wind]="timeItem.wind.speed"
+        [pressure]="timeItem.main.pressure"
+        [temp]="timeItem.main.temp"
+      ></app-weather-detail>
+    </div>
+  </div>
+</div>

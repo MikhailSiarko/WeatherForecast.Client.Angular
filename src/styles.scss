@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Righteous', cursive; }
+
+.app-container {
+  height: 40vh;
+  margin-top: calc((60vh - 64px)/2);
+}
