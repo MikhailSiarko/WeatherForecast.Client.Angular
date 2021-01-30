@@ -3,7 +3,7 @@
     <app-location-input (search)="getForecast($event)" [loading]="loading"></app-location-input>
     <div class="row">
       <div *ngIf="forecast && !loading" class="weather-list">
-        <app-location [city]="forecast.city" [countryCode]="forecast.countryCode"></app-location>
+        <app-location [city]="forecast.name" [countryCode]="forecast.country"></app-location>
         <app-item-collection [items]="forecast.items"></app-item-collection>
       </div>
     </div>

@@ -1,7 +1,7 @@
 export class Forecast {
   id: number;
-  countryCode: string;
-  city: string;
+  country: string;
+  name: string;
   updated: string;
   items: ForecastItem[];
 }
